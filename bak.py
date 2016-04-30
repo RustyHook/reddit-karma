@@ -1,6 +1,5 @@
 import json
 import urllib2
-<<<<<<< HEAD
 import sys
 
 
@@ -63,11 +62,3 @@ while True:
 		else:
 			print "Invalid input\n"
 			continue
-=======
-
-url = "https://reddit.com/u/howlingpotato.json"
-
-data = json.load(urllib2.urlopen(url))
-
-print data["data"]["children"][0]["data"]["score"]
->>>>>>> 0126d7c956d2852417c352bf63b7388d6e0449a3
