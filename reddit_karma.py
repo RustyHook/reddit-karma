@@ -3,13 +3,14 @@ import urllib2
 import sys
 
 
-
+#Loop as long as user wants to compare
 while True:
 
 	print "Welcome to reddit-karma!\nA comparison tool for users' most recent posts' score\n"
 
 	username1 = raw_input("Please enter the name of the first user for comparison: ")
 
+	#Try to grab the JSON object, handles 404 and 429(I guess reddit doesn't like this)
 	while True:
 		try:
 			url1 = "https://reddit.com/u/"+username1+".json"
@@ -38,6 +39,7 @@ while True:
 				username2 = raw_input("Please enter the name of the second user for comparison: ")
 				continue
 
+	#Extracts karma value of the users' most-recent posts
 	karma1 = data1["data"]["children"][0]["data"]["score"]
 	karma2 = data2["data"]["children"][0]["data"]["score"] 
 
