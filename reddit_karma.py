@@ -2,6 +2,9 @@ import json
 import urllib2
 import sys
 
+#TODO: change user agent string
+
+
 def getJSON(username):
 	""" str -> dictcd
 	
@@ -14,10 +17,13 @@ def getJSON(username):
 	while True:
 		try:
 			url = "https://reddit.com/u/"+username+".json"
-			data = json.load(urllib2.urlopen(url))
+			hdr = { 'User-Agent' : 'A simple script by RustyHook for beginners-projects(JorgeG)' }
+			req = urllib2.Request(url, headers=hdr)
+			data = json.load(urllib2.urlopen(req))
 			break
 		except urllib2.HTTPError, err:
 			if str(err.code) == "429":
+				print "dzabe si krecio"
 				continue
 			else:
 				print "Invalid username, try again!"
